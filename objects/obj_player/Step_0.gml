@@ -18,9 +18,11 @@ right = keyboard_check(ord("D"));
 
 //ajustar movimento
 //checando se o usuario esta apertando algo 
-if (up || down || left || right){
+//XOR(or exclusivo)
+//XOR = ^^ ou xor
+if (up xor down || left ^^ right){
 	//descobrir para que direção esta se movendo 
-	move_dir = point_direction(0,0, (right - left), (down - up));
+	move_dir = point_direction(0, 0, (right - left), (down - up));
 	
 	//ganha velocidade ao se mover
 	//vel = lerp(vel, max_vel, 0.1);

@@ -36,14 +36,22 @@ usar_arma = function() {
 	}
 }
 
-//joga arma atual "fora"
+//joga arma atual fora
 joga_arma = function() {
 	if (arma) {
 		var _jogar = keyboard_check_released(ord("G"));
+		var _col;
 		
-		if (_jogar) {
+		//checa se a arma esta dentro da parede, colidindo com o block
+		//rodando o codigo de dentro da arma
+		with(arma) {
+			_col = place_meeting(x, y, obj_block);
+		}
+		
+		if (_jogar && !_col) {
 			arma.speed = 3;
 			arma.direction = arma.image_angle;
+			arma.atirar = false;
 			arma = noone;
 		}
 	}

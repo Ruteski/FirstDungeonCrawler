@@ -32,3 +32,14 @@ atirando = function() {
 		}
 	}
 }
+
+quica_parede = function() {
+	//batendo na parede e voltando
+	//check se estou batendo na horizontal
+	if (place_meeting(x + hspeed, y, obj_block)) 
+		hspeed *= -1;
+		
+	//check se estou batendo na vertical
+	if (place_meeting(x, vspeed + y, obj_block))
+		vspeed *= -1;
+}
