@@ -26,7 +26,8 @@ if (up || down || left || right){
 	move_dir = point_direction(0,0, (right - left), (down - up));
 	
 	//ganha velocidade ao se mover
-	vel = lerp(vel, max_vel, 0.1);
+	//vel = lerp(vel, max_vel, 0.1);
+	vel = max_vel;
 } else {
 	//vel = 0;
 	vel = lerp(vel, 0, 0.1);
