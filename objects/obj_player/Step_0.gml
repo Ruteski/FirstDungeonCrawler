@@ -36,3 +36,4 @@ if (up || down || left || right){
 velh = lengthdir_x(vel, move_dir);
 velv = lengthdir_y(vel, move_dir);
 
+joga_arma();

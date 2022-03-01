@@ -15,7 +15,7 @@ arma = noone;
 
 
 //metodo de controle do cajado
-usar_arma = function () {
+usar_arma = function() {
 	if (arma) {
 		var _fire = mouse_check_button(mb_left);
 		arma.atirar = _fire;
@@ -33,5 +33,18 @@ usar_arma = function () {
 		
 		//fazendo a arma apontar para o mouse
 		arma.image_angle = _dir;
+	}
+}
+
+//joga arma atual "fora"
+joga_arma = function() {
+	if (arma) {
+		var _jogar = keyboard_check_released(ord("G"));
+		
+		if (_jogar) {
+			arma.speed = 3;
+			arma.direction = arma.image_angle;
+			arma = noone;
+		}
 	}
 }

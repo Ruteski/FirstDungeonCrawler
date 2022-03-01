@@ -3,6 +3,7 @@
     {"id":{"name":"spr_cajado_vermelho","path":"sprites/spr_cajado_vermelho/spr_cajado_vermelho.yy",},"order":1,},
     {"id":{"name":"obj_arma_pai","path":"objects/obj_arma_pai/obj_arma_pai.yy",},"order":0,},
     {"id":{"name":"obj_tiro","path":"objects/obj_tiro/obj_tiro.yy",},"order":2,},
+    {"id":{"name":"obj_cajado_verde","path":"objects/obj_cajado_verde/obj_cajado_verde.yy",},"order":2,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_tiro","path":"sprites/spr_tiro/spr_tiro.yy",},"order":2,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
