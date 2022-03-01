@@ -5,7 +5,7 @@
 velh = 0; //velocidade horizontal
 velv = 0; //velcodiadde vertical
 max_vel = 5; //velocidade maxima de movimento
-vel = 0; //velocidade
+vel = 0; //velocidade geral
 move_dir = 0; //direção que esta se movimentando
 
 
