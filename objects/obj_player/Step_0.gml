@@ -2,12 +2,13 @@
 // You can write your code in this editor
 
 
-var up, down, left, right;
+var up, down, left, right, fire;
 
 up = keyboard_check(ord("W"));
 left = keyboard_check(ord("A"));
 down = keyboard_check(ord("S"));
 right = keyboard_check(ord("D"));
+fire = mouse_check_button_pressed(mb_left);
 
 //se apertar "A" left = 1
 //se apertar "D" right = 1
@@ -31,6 +32,13 @@ if (up || down || left || right){
 	vel = lerp(vel, 0, 0.1);
 	//simulando uma parada no gelo
 	//vel = lerp(vel, 0, 0.02);
+}
+
+//criando o tiro
+if (fire ) {
+	var _tiro = instance_create_layer(x, y, "tiros", obj_tiro);
+	_tiro.speed = 10;
+	_tiro.direction = point_direction(x,y, mouse_x, mouse_y);
 }
 
 //com base na direção aplico a velocidade
