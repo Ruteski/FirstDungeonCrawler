@@ -11,7 +11,7 @@ delay_tiro = 0;
 atirando = function() {
 			
 	//olhando para a direlção do mouse
-	image_angle = point_direction(x, y, mouse_x, mouse_y) - 90;	
+	image_angle = point_direction(x, y, mouse_x, mouse_y);	
 	
 	if (atirar) {
 		//cria o tiro dentro do intervalo de tiro
@@ -21,8 +21,8 @@ atirando = function() {
 			delay_tiro = espera_tiro * room_speed;
 			
 			//achando posicao para criar o tiro
-			var _x = lengthdir_x(sprite_height, image_angle + 90);
-			var _y = lengthdir_y(sprite_height, image_angle + 90);
+			var _x = lengthdir_x(sprite_width, image_angle);
+			var _y = lengthdir_y(sprite_width, image_angle);
 			
 			//atirando
 			var _tiro = instance_create_layer(x + _x , y + _y, layer, tiro);
@@ -31,7 +31,7 @@ atirando = function() {
 			_tiro.speed = velocidade;
 			
 			//definindo direcao do tiro
-			_tiro.direction = image_angle + 90;
+			_tiro.direction = image_angle;
 		}
 	}
 }
