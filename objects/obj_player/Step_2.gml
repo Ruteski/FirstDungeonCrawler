@@ -1,7 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-
 // sistema de colisao e movimentacao horizontal
 var _velh = sign(velh); // retorna 1, -1 ou 0
 
@@ -30,3 +26,5 @@ repeat(abs(velv)) {
 		y += _velv;
 	}
 }
+
+usar_arma();

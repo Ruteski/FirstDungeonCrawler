@@ -2,16 +2,13 @@
 image_xscale = 0.5;
 image_yscale = 0.5;
 
-atirar = true;
+atirar = false;
 
 //delay para atirar
 delay_tiro = 0;
 
 //metodo para atirar
 atirando = function() {
-			
-	//olhando para a direlção do mouse
-	image_angle = point_direction(x, y, mouse_x, mouse_y);	
 	
 	if (atirar) {
 		//cria o tiro dentro do intervalo de tiro
