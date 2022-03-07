@@ -7,12 +7,14 @@ atirar = false;
 //delay para atirar
 delay_tiro = 0;
 
+pai = noone;
+
 //metodo para atirar
 atirando = function() {
+	delay_tiro--;	
 	
 	if (atirar) {
 		//cria o tiro dentro do intervalo de tiro
-		delay_tiro--;
 		if (delay_tiro <= 0) {
 			//reseta delay tiro
 			delay_tiro = espera_tiro * room_speed;
@@ -29,6 +31,17 @@ atirando = function() {
 			
 			//definindo direcao do tiro
 			_tiro.direction = image_angle;
+			
+			//empurrando o player
+			if (pai) {
+				//achando o valor de velh e velv com base na direção
+				var _velh = lengthdir_x(knockback, image_angle);
+				var _velv = lengthdir_y(knockback, image_angle);
+				
+				pai.velh -= _velh;
+				pai.velv -= _velv;
+				
+			}
 		}
 	}
 }
