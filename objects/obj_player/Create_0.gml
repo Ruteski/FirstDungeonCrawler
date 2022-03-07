@@ -52,6 +52,13 @@ joga_arma = function() {
 			arma.speed = 3;
 			arma.direction = arma.image_angle;
 			arma.atirar = false;
+			
+			//retira atribuicao de pai da arma
+			arma.pai = noone;
+			
+			//delay para poder pegar a arma novamente
+			arma.delay_pega = room_speed * 2;
+			
 			arma = noone;
 		}
 	}

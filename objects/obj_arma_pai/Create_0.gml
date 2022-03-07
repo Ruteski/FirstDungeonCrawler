@@ -4,6 +4,9 @@ image_yscale = 0.5;
 
 atirar = false;
 
+//deplay para pegar a arma
+delay_pega = 0;
+
 //delay para atirar
 delay_tiro = 0;
 
@@ -29,8 +32,8 @@ atirando = function() {
 			//velocidade do tiro
 			_tiro.speed = velocidade;
 			
-			//definindo direcao do tiro
-			_tiro.direction = image_angle;
+			//definindo direcao do tiro com base na imprecisao
+			_tiro.direction = image_angle + random_range(-imprecisao, imprecisao);
 			
 			//empurrando o player
 			if (pai) {

@@ -32,6 +32,7 @@
         "GMObject",
       ],"resourceVersion":"1.0","name":"tiro","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":20.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"knockback","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":50.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"imprecisao","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
