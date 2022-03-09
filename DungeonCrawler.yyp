@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"spr_tile","path":"sprites/spr_tile/spr_tile.yy",},"order":6,},
     {"id":{"name":"spr_cajado_vermelho","path":"sprites/spr_cajado_vermelho/spr_cajado_vermelho.yy",},"order":1,},
     {"id":{"name":"obj_arma_pai","path":"objects/obj_arma_pai/obj_arma_pai.yy",},"order":0,},
     {"id":{"name":"obj_tiro","path":"objects/obj_tiro/obj_tiro.yy",},"order":2,},
@@ -9,6 +10,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":1,},
     {"id":{"name":"obj_cajado_vermelho","path":"objects/obj_cajado_vermelho/obj_cajado_vermelho.yy",},"order":1,},
+    {"id":{"name":"tl_level","path":"tilesets/tl_level/tl_level.yy",},"order":0,},
     {"id":{"name":"spr_cajado_verde","path":"sprites/spr_cajado_verde/spr_cajado_verde.yy",},"order":0,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":1,},
     {"id":{"name":"spr_tiro_axe","path":"sprites/spr_tiro_axe/spr_tiro_axe.yy",},"order":0,},
