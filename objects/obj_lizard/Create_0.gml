@@ -10,6 +10,12 @@ destino_x = x;
 destino_y = y;
 
 vel = 1;
+velh = 0;
+velv = 0;
+
+sprite = sprite_index;
+xscale = 1;
+yscale = 1;
 
 
 //metodo de mudança de estado
@@ -28,17 +34,33 @@ muda_estado = function(_estado) {
 	}	
 }
 
+
+//metodo para desenhar sprite
+desenha_sprite = function() {
+	draw_sprite_ext(sprite, image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
+}
+
+//desenha sombra
+desenha_sombra = function() {
+	draw_sprite_ext(spr_sombra, 0, x, y, .2, .2,  0, c_white, .25);
+}
+
 //metodo parado
 estado_parado = function() {
-	sprite_index = spr_lizard_idle;
-	image_blend = c_white;
+	sprite = spr_lizard_idle;
+	//image_blend = c_white;
+	
+	//zerando a velocidade quando estiver parado
+	velh = 0;
+	velv = 0;
+	
 	muda_estado([estado_passeando, estado_parado]);
 }
 
 // metodo passeando/andar
 estado_passeando = function() {
 	//definindo a sprite
-	sprite_index = spr_lizard_run;
+	sprite = spr_lizard_run;
 	
 	//checando distancia do destino
 	var _dist = point_distance(x, y, destino_x, destino_y);
@@ -53,11 +75,17 @@ estado_passeando = function() {
 	//achando a direcao para o destino
 	var _dir = point_direction(x, y, destino_x, destino_y);
 	
-	//movendo para o destino
-	x += lengthdir_x(vel, _dir);
-	y += lengthdir_y(vel, _dir);
+	//olhado para a direcao que esta indo
+	//evitando que o xscale bugue quando o velh for 0
+	if (velh != 0) {
+		xscale = sign(velh);
+	}
 	
-	image_blend = c_red;
+	//movendo para o destino
+	velh = lengthdir_x(vel, _dir);
+	velv = lengthdir_y(vel, _dir);
+	
+	//image_blend = c_red;
 	muda_estado([estado_parado, estado_passeando]);
 }
 

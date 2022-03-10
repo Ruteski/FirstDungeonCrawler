@@ -1,3 +1,7 @@
+//arrumando profundidade
+// profundidade entre os objetos
+depth = -bbox_bottom;
+
 var up, down, left, right;
 
 up = keyboard_check(ord("W"));

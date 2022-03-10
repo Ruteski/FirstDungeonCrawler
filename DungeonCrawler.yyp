@@ -15,6 +15,7 @@
     {"id":{"name":"spr_cajado_verde","path":"sprites/spr_cajado_verde/spr_cajado_verde.yy",},"order":0,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":1,},
     {"id":{"name":"spr_tiro_axe","path":"sprites/spr_tiro_axe/spr_tiro_axe.yy",},"order":0,},
+    {"id":{"name":"spr_sombra","path":"sprites/spr_sombra/spr_sombra.yy",},"order":8,},
     {"id":{"name":"obj_cajado_axe","path":"objects/obj_cajado_axe/obj_cajado_axe.yy",},"order":3,},
     {"id":{"name":"obj_tiro_axe","path":"objects/obj_tiro_axe/obj_tiro_axe.yy",},"order":0,},
     {"id":{"name":"spr_lizard_idle","path":"sprites/spr_lizard_idle/spr_lizard_idle.yy",},"order":0,},
