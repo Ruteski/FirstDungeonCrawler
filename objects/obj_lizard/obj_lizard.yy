@@ -1,13 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_inimigo",
-    "path": "sprites/spr_inimigo/spr_inimigo.yy",
+    "name": "spr_lizard_idle",
+    "path": "sprites/spr_lizard_idle/spr_lizard_idle.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": {
-    "name": "spr_inimigo",
-    "path": "sprites/spr_inimigo/spr_inimigo.yy",
+    "name": "spr_lizard_idle",
+    "path": "sprites/spr_lizard_idle/spr_lizard_idle.yy",
   },
   "persistent": false,
   "parentObjectId": null,
