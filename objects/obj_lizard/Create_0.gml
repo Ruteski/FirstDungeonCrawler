@@ -15,6 +15,9 @@ velv = 0;
 
 alvo = noone;
 
+//saturacao
+sat = 0;
+
 sprite = sprite_index;
 xscale = 1;
 yscale = 1;
@@ -124,15 +127,71 @@ estado_passeando = function() {
 
 // estado perseguindo o jogador
 estado_persegue = function() {
-	image_blend = c_fuchsia;
-	velh = 0;
-	velv = 0;
+	//image_blend = c_fuchsia;
+	
+	// sprite correta
+	sprite = spr_lizard_run;
+	
+	// checa se o alvo existe
+	if (instance_exists(alvo)) {
+		// direcao do alvo
+		var _dir = point_direction(x, y, alvo.x, alvo.y);
+		
+		// move na direcao do alvo
+		velh = lengthdir_x(vel, _dir);
+		velv = lengthdir_y(vel, _dir);
+		
+		// distancia para o alvo
+		var _dist = point_distance(x, y, alvo.x, alvo.y);
+		
+		// se o alvo estiver mto proximo, prepara o ataque
+		if (_dist < largura_visao / 2) {
+			estado = estado_prepara_ataque;
+		}
+		
+		// se o alvo esta mto longe, desiste
+		if (_dist > largura_visao * 2) {
+			alvo = noone;
+		}
+		
+	} else {
+		muda_estado([estado_parado, estado_passeando]);
+	}
+
 }
 
 
 // estado de preparacao do ataque(aviso ao jogador que alguma coisa vai acontecer)
+estado_prepara_ataque = function() {
+
+	// sat nunca passa de 1
+	if (sat < 1) {
+		sat += (delta_time / 2000000);
+	}
+	
+	//animacao use a sat
+	image_speed = sat;
+	
+	sprite = spr_lizard_idle;
+	
+	velh = 0;
+	velv = 0;
+	
+	image_blend = make_color_hsv(255, sat * 255, 255);
+	
+	// se esperou 2 segundos, entao ataca
+	if (sat > 1) {
+		estado = estado_ataque;	
+		sat = 0;
+		image_speed = 1;
+	}
+	
+}
 
 // estado de ataque
+estado_ataque = function() {
+	image_blend = c_aqua;
+}
 
 // definindo o estado inicial do inimigo
 estado = estado_parado;
