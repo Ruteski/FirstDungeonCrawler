@@ -14,6 +14,9 @@ velh = 0;
 velv = 0;
 
 alvo = noone;
+alvo_dir = 0;
+duracao_ataque = 0.5;
+tempo_ataque = duracao_ataque;
 
 //saturacao
 sat = 0;
@@ -182,6 +185,7 @@ estado_prepara_ataque = function() {
 	// se esperou 2 segundos, entao ataca
 	if (sat > 1) {
 		estado = estado_ataque;	
+		alvo_dir = point_direction(x, y, alvo.x, alvo.y);
 		sat = 0;
 		image_speed = 1;
 	}
@@ -190,7 +194,20 @@ estado_prepara_ataque = function() {
 
 // estado de ataque
 estado_ataque = function() {
-	image_blend = c_aqua;
+	// diminuindo tempo de ataque
+	tempo_ataque -= delta_time / 1000000;
+	
+	image_blend = c_white;
+	
+	//avancando na posicao do jogador, onde ele estava antes de iniciar o ataque
+	velh = lengthdir_x(vel * 4, alvo_dir);
+	velv = lengthdir_y(vel * 4, alvo_dir);
+	
+	// saindo do estado de ataque
+	if (tempo_ataque <= 0) {
+		estado = estado_parado;
+		tempo_ataque = duracao_ataque;
+	}
 }
 
 // definindo o estado inicial do inimigo
