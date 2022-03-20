@@ -13,6 +13,8 @@ vel = 1;
 velh = 0;
 velv = 0;
 
+alvo = noone;
+
 sprite = sprite_index;
 xscale = 1;
 yscale = 1;
@@ -45,6 +47,24 @@ desenha_sombra = function() {
 	draw_sprite_ext(spr_sombra, 0, x, y, .2, .2,  0, c_white, .25);
 }
 
+// campo de visao
+///@method campo_visao(largura, altura, escalaX)
+campo_visao = function(_largura, _altura, _xscale) {
+	var _x1, _x2, _y1, _y2;
+	_x1 = x;
+	_y1 = y + _altura / 2 - sprite_height / 2;
+	_x2 = _x1 + _largura * _xscale;
+	_y2 = _y1 - _altura;
+	
+	// desenhando um quadrado para teste de campo de visao
+	//draw_rectangle(_x1, _y1, _x2, _y2, false);
+	
+	// checa se o jogador esta no campo de visao
+	var _alvo = collision_rectangle(_x1, _y1, _x2, _y2, obj_player, 0, 1);
+	
+	return _alvo;
+}
+
 //metodo parado
 estado_parado = function() {
 	sprite = spr_lizard_idle;
@@ -53,6 +73,12 @@ estado_parado = function() {
 	//zerando a velocidade quando estiver parado
 	velh = 0;
 	velv = 0;
+	
+	alvo = campo_visao(largura_visao, sprite_height * altura_visao, xscale);
+	
+	if (alvo) {
+		estado = estado_persegue;
+	}
 	
 	muda_estado([estado_passeando, estado_parado]);
 }
@@ -85,9 +111,28 @@ estado_passeando = function() {
 	velh = lengthdir_x(vel, _dir);
 	velv = lengthdir_y(vel, _dir);
 	
+	// olhando para frente
+	alvo = campo_visao(largura_visao, sprite_height * altura_visao, xscale);
+	
+	if (alvo) {
+		estado = estado_persegue;
+	}
+	
 	//image_blend = c_red;
 	muda_estado([estado_parado, estado_passeando]);
 }
+
+// estado perseguindo o jogador
+estado_persegue = function() {
+	image_blend = c_fuchsia;
+	velh = 0;
+	velv = 0;
+}
+
+
+// estado de preparacao do ataque(aviso ao jogador que alguma coisa vai acontecer)
+
+// estado de ataque
 
 // definindo o estado inicial do inimigo
 estado = estado_parado;
