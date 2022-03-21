@@ -2,6 +2,14 @@
 // estado passeando
 // estado persegue player
 
+//herdando as informações do pai - herança
+event_inherited();
+
+//ajustando a vida
+vida_max = 3;
+vida_atual = vida_max;
+
+
 estado = noone;
 tempo_estado = room_speed * 10;
 timer_estado = 0;
