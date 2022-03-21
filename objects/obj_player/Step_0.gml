@@ -44,3 +44,4 @@ velv = lengthdir_y(vel, move_dir);
 
 joga_arma();
 efeito_dano();
+olha_mouse();

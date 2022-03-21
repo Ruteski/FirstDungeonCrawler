@@ -20,6 +20,21 @@ tempo_inv = room_speed * 2;
 // mostra data e hora formatada
 //show_message(date_datetime_string(date_current_datetime()));
 
+xscale = 1;
+// metodo de olhar para onde o jogador ta mirando
+olha_mouse = function() {
+	//checa se o x do mouse do jogador é maior que o meu x
+	/**if (mouse_x >= x) {
+		//olha pra direita
+		xscale = 1;
+	} else {
+		//olha pra esquerda
+		xscale = -1
+	}*/
+	
+	xscale = mouse_x - x != 0 ? sign(mouse_x - x) : 1;
+}
+
 efeito_dano = function() {
 	static _valor = -0.05;
 	
