@@ -8,10 +8,52 @@ max_vel = 3; //velocidade maxima de movimento
 vel = 0; //velocidade geral
 move_dir = 0; //direção que esta se movimentando
 arma = noone;
+dano = false;
+vida_max = 3;
+vida = vida_max;
+
+//tempo de invencibilidade
+// 2 segundo invencivel
+tempo_inv = room_speed * 2;
 
 
 // mostra data e hora formatada
 //show_message(date_datetime_string(date_current_datetime()));
+
+efeito_dano = function() {
+	static _valor = -0.05;
+	
+	//se tomou dano, muda a transparencia
+	if (!dano) {
+		return;
+	}
+	
+	//se sumiu, valor fica positivo, se apareceu, valor fica negativo
+	if (image_alpha <= 0) {
+		_valor *= -1;
+	}
+	
+	// se tiver totalmente visivel o valor fica positivo
+	if (image_alpha > 1) {
+		_valor *= -1;
+	}
+	
+	image_alpha += _valor;
+}
+
+toma_dano = function() {
+	// perco 1 de vida se ainda nao perdi vida
+	if (dano) {
+		return;
+	}
+	
+	vida--;	
+	
+	dano = true;
+	
+	// garante que eu posso tomar dano depois de um tempo
+	alarm[0] = tempo_inv;
+}
 
 
 //metodo de controle do cajado

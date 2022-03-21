@@ -10,7 +10,10 @@
     "path": "sprites/spr_lizard_idle/spr_lizard_idle.yy",
   },
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_inimigo_pai",
+    "path": "objects/obj_inimigo_pai/obj_inimigo_pai.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
